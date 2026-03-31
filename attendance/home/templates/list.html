@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    {% extends 'home/index.html' %}
+
+{% block content %}
+<h2>Student Attendance</h2>
+
+<a href="{% url 'student_create' %}" class="btn btn-primary mb-3">Add Record</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Present</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.student_id }}</td>
+        <td>{{ student.is_present }}</td>
+        <td>{{ student.date }}</td>
+        <td>
+            <a href="{% url 'student_detail' student.pk %}" class="btn btn-info btn-sm">View</a>
+            <a href="{% url 'student_update' student.pk %}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{% url 'student_delete' student.pk %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>
+

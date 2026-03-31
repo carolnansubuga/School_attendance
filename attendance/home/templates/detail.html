@@ -1,0 +1,14 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+<h2>Student Detail</h2>
+
+<ul class="list-group">
+    <li class="list-group-item"><b>Name:</b> {{ student.name }}</li>
+    <li class="list-group-item"><b>ID:</b> {{ student.student_id }}</li>
+    <li class="list-group-item"><b>Present:</b> {{ student.is_present }}</li>
+    <li class="list-group-item"><b>Date:</b> {{ student.date }}</li>
+</ul>
+
+<a href="/" class="btn btn-primary mt-3">Back</a>
+{% endblock %}
